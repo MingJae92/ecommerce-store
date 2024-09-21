@@ -4,22 +4,11 @@ import Navbar from './components/Navbar/Navbar';
 import Hero from './components/Hero/Hero';
 // import Photogrid from './components/Photogrid/Photogrid';
 import Footer from './components/Footer/Footer';
+import Landingpage from './components/Landingpage/Landingpage';
 
 const App = () => {
   return (
-    <Box display="flex" flexDirection="column" minHeight="100vh">
-      {/* Navbar */}
-      <Navbar />
-
-      {/* Hero Section */}
-      <Hero />
-
-      {/* Product Grid */}
-      {/* <Photogrid /> */}
-
-      {/* Footer */}
-      <Footer />
-    </Box>
+    <Landingpage/>
   );
 };
 

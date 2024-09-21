@@ -17,11 +17,11 @@ const Hero = () => {
           </Button>
         </Grid>
         <Grid item xs={12} md={6}>
-          <img
+          {/* <img
             src="https://via.placeholder.com/500"
             alt="Featured Product"
             style={{ width: '100%' }}
-          />
+          /> */}
         </Grid>
       </Grid>
     </Container>

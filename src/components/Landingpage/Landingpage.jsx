@@ -1,9 +1,16 @@
 import React from "react";
+import Navbar from "../Navbar/Navbar";
+import Footer from "../Footer/Footer";
+import Hero from "../Hero/Hero";
 
 function Landingpage() {
   return (
     <div>
-      <h1>Ecommerce</h1>
+      <Navbar/>
+      <Hero/>
+      {/* <Hero/>
+      <Footer/> */}
+      <Footer/>
     </div>
   );
 }

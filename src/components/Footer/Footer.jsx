@@ -1,13 +1,26 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 
 const Footer = () => {
   return (
-    <footer style={{ padding: '2rem 0', textAlign: 'center', marginTop: '4rem', backgroundColor: '#f5f5f5' }}>
+    <Box
+      component="footer"
+      sx={{
+        position: 'fixed',
+        bottom: 0,
+        left: 0,
+        width: '100%',
+        minHeight: '7vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#f5f5f5',
+      }}
+    >
       <Typography variant="body2" color="text.secondary">
         © 2024 My Store. All rights reserved.
       </Typography>
-    </footer>
+    </Box>
   );
 };
 
