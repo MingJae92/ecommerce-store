@@ -1,16 +1,26 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import React from 'react';
+import { Box } from '@mui/material';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
+// import Photogrid from './components/Photogrid/Photogrid';
+import Footer from './components/Footer/Footer';
 
-function App() {
-
-
+const App = () => {
   return (
-    <>
-      <h1>Ecommerce</h1>
-    </>
+    <Box display="flex" flexDirection="column" minHeight="100vh">
+      {/* Navbar */}
+      <Navbar />
+
+      {/* Hero Section */}
+      <Hero />
+
+      {/* Product Grid */}
+      {/* <Photogrid /> */}
+
+      {/* Footer */}
+      <Footer />
+    </Box>
   );
-}
+};
 
 export default App;
