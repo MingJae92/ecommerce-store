@@ -9,6 +9,9 @@ const Navbar = () => {
           My Store
         </Typography>
         <Button color="inherit">Login</Button>
+        <Button color="inherit" sx={{ ml: 2 }}>
+          Sign Up
+        </Button>
       </Toolbar>
     </AppBar>
   );
