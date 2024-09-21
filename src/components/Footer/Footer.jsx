@@ -12,7 +12,6 @@ const Footer = () => {
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#f5f5f5',
-        marginTop: 'auto', // Pushes the footer to the bottom of the page
       }}
     >
       <Typography variant="body2" color="text.secondary">

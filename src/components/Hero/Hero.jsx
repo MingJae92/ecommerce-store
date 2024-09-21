@@ -3,13 +3,13 @@ import { Container, Box, Typography, Button } from '@mui/material';
 
 const Hero = () => {
   return (
-    <Container maxWidth="xl" sx={{ mt: 4, mb: 4 }}>
+    <Container maxWidth="xl" sx={{ mt: 4, mb: 4, backgroundColor: '#f9f9f9', p: 2 }}>
       <Box 
         display="flex" 
         flexDirection={{ xs: 'column', md: 'row' }} 
         alignItems="center" 
         justifyContent="space-between" 
-        sx={{ height: '60vh', p: 2 }}
+        sx={{ height: '60vh' }}
       >
         <Box flex={1} sx={{ p: 2 }}>
           <Typography variant="h2" gutterBottom>
@@ -25,11 +25,11 @@ const Hero = () => {
             Learn More
           </Button>
         </Box>
-        <Box flex={1} sx={{ display: { xs: 'none', md: 'block' } }}>
+        <Box flex={1} sx={{ display: { xs: 'none', md: 'block' }, height: '100%' }}>
           <img
-            src="https://via.placeholder.com/500x400" // Replace with your product image
+            src="https://via.placeholder.com/500x400"
             alt="Featured Product"
-            style={{ width: '100%', borderRadius: '8px' }}
+            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }}
           />
         </Box>
       </Box>

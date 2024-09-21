@@ -12,7 +12,13 @@ import { Box } from '@mui/material';
 
 function Landingpage() {
   return (
-    <Box>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh', // Ensure the page takes at least the full height
+      }}
+    >
       <Navbar />
       <Hero />
       <FeaturedProducts />
