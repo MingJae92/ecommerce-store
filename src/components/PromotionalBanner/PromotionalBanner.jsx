@@ -1,16 +1,27 @@
 import React from 'react';
-import { Box, Typography, Button } from '@mui/material';
+import { Container, Box, Typography, Button } from '@mui/material';
 
 const PromotionalBanner = () => {
   return (
-    <Box sx={{ textAlign: 'center', mt: 4, backgroundColor: '#f9f9f9', p: 4 }}>
-      <Typography variant="h5" sx={{ color: '#f46a6a' }}>
-        Special Offer: 20% off on first purchase!
-      </Typography>
-      <Button variant="contained" sx={{ mt: 2, backgroundColor: '#3fcf8e', color: '#fff' }}>
-        Claim Offer
-      </Button>
-    </Box>
+    <Container maxWidth="xl" sx={{ backgroundColor: '#eceff1', p: 4, mt: 4 }}>
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        sx={{ textAlign: 'center', height: '40vh' }}
+      >
+        <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }}>
+          Limited-Time Offer!
+        </Typography>
+        <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
+          Save up to 30% on select styles. Hurry, while supplies last.
+        </Typography>
+        <Button variant="contained" color="primary" size="large">
+          Shop the Sale
+        </Button>
+      </Box>
+    </Container>
   );
 };
 

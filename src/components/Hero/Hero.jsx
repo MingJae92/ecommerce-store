@@ -9,14 +9,14 @@ const Hero = () => {
         flexDirection={{ xs: 'column', md: 'row' }} 
         alignItems="center" 
         justifyContent="space-between" 
-        sx={{ height: '60vh' }}
+        sx={{ height: '80vh', p: 2 }}
       >
         <Box flex={1} sx={{ p: 2 }}>
-          <Typography variant="h2" gutterBottom>
-            Discover Amazing Products
+          <Typography variant="h2" sx={{ fontWeight: 'bold' }} gutterBottom>
+            Elevate Your Game
           </Typography>
           <Typography variant="h5" color="text.secondary" sx={{ mb: 3 }}>
-            Find the best deals on the latest trends in fashion, electronics, and more!
+            Discover the latest performance gear and stay ahead of the competition.
           </Typography>
           <Button variant="contained" color="primary" size="large" sx={{ mr: 2 }}>
             Shop Now
@@ -27,7 +27,7 @@ const Hero = () => {
         </Box>
         <Box flex={1} sx={{ display: { xs: 'none', md: 'block' }, height: '100%' }}>
           <img
-            src="https://via.placeholder.com/500x400"
+            src="https://via.placeholder.com/500x400" // Replace with your product image
             alt="Featured Product"
             style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }}
           />
