@@ -1,44 +1,49 @@
 import React from 'react';
-import { Container, Box, Typography, Button, TextField } from '@mui/material';
+import { Box, Typography, TextField, Button, Grid } from '@mui/material';
 
 const NewsletterSignup = () => {
   return (
-    <Container maxWidth="xl" sx={{ mt: 4, mb: 4, backgroundColor: '#f9f9f9', p: 4 }}>
-      <Box 
-        display="flex" 
-        flexDirection="column" 
-        alignItems="center" 
-        justifyContent="center" 
-        sx={{ textAlign: 'center', height: '40vh' }}
-      >
-        <Typography variant="h4" sx={{ fontWeight: 'bold', mb: 2 }}>
-          Stay in the Know
-        </Typography>
-        <Typography variant="h6" color="text.secondary" sx={{ mb: 4 }}>
-          Get updates on the latest products, special offers, and more.
-        </Typography>
+    <Grid container justifyContent="center" sx={{ my: 4 }}>
+      <Grid item xs={12} md={8} lg={6}>
         <Box
-          display="flex"
-          flexDirection={{ xs: 'column', md: 'row' }}
-          sx={{ width: '100%', maxWidth: '600px', alignItems: 'center' }}
+          sx={{
+            width: '100%',
+            backgroundColor: '#f0f0f0',
+            py: 6,
+            px: { xs: 2, sm: 4, md: 8 },
+            textAlign: 'center',
+            borderRadius: 2, // Optional: adds rounded corners
+            boxShadow: 1, // Optional: adds a slight shadow
+          }}
         >
-          <TextField 
-            label="Enter your email" 
-            variant="outlined" 
-            fullWidth 
-            sx={{ mb: { xs: 2, md: 0 }, mr: { md: 2 } }} 
-          />
-          <Button 
-            variant="contained" 
-            color="primary" 
-            size="large" 
-            sx={{ width: { xs: '100%', md: 'auto' } }}
+          <Typography variant="h4" gutterBottom>
+            Sign Up for Our Newsletter
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+            Stay updated with the latest deals and exclusive offers.
+          </Typography>
+          <Box
+            component="form"
+            sx={{
+              display: 'flex',
+              flexDirection: { xs: 'column', sm: 'row' },
+              gap: 2,
+              justifyContent: 'center',
+              alignItems: 'center', // Center items vertically in the row layout
+            }}
           >
-            Sign Up
-          </Button>
+            <TextField 
+              label="Enter your email" 
+              variant="outlined" 
+              sx={{ flex: 1, minWidth: { xs: 'auto', sm: '200px' } }} // Set a minimum width for better layout
+            />
+            <Button variant="contained" color="primary">
+              Sign Up
+            </Button>
+          </Box>
         </Box>
-      </Box>
-    </Container>
+      </Grid>
+    </Grid>
   );
 };
 

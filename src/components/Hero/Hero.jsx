@@ -9,13 +9,13 @@ const Hero = () => {
         flexDirection={{ xs: 'column', md: 'row' }} 
         alignItems="center" 
         justifyContent="space-between" 
-        sx={{ height: '80vh', p: 2 }}
+        sx={{ height: { xs: 'auto', md: '80vh' }, p: 2 }}
       >
         <Box flex={1} sx={{ p: 2 }}>
-          <Typography variant="h2" sx={{ fontWeight: 'bold' }} gutterBottom>
+          <Typography variant="h2" sx={{ fontWeight: 'bold', fontSize: { xs: '2rem', md: '3.5rem' } }} gutterBottom>
             Elevate Your Game
           </Typography>
-          <Typography variant="h5" color="text.secondary" sx={{ mb: 3 }}>
+          <Typography variant="h5" color="text.secondary" sx={{ mb: 3, fontSize: { xs: '1.2rem', md: '1.5rem' } }}>
             Discover the latest performance gear and stay ahead of the competition.
           </Typography>
           <Button variant="contained" color="primary" size="large" sx={{ mr: 2 }}>
@@ -25,11 +25,17 @@ const Hero = () => {
             Learn More
           </Button>
         </Box>
-        <Box flex={1} sx={{ display: { xs: 'none', md: 'block' }, height: '100%' }}>
+        <Box flex={1} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: { xs: 'auto', md: '100%' }, mt: { xs: 4, md: 0 } }}>
           <img
             src="https://via.placeholder.com/500x400" // Replace with your product image
             alt="Featured Product"
-            style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '8px' }}
+            style={{ 
+              width: '100%', 
+              height: 'auto', 
+              maxWidth: '500px', 
+              objectFit: 'cover', 
+              borderRadius: '8px' 
+            }}
           />
         </Box>
       </Box>

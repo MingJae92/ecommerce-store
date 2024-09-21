@@ -26,7 +26,7 @@ function Landingpage() {
       <PromotionalBanner />
       <Testimonials />
       <NewsletterSignup />
-      <Footer />
+      
     </Box>
   );
 }
