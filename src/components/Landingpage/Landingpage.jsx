@@ -6,15 +6,14 @@ import Categories from "../Categories/Categories";
 import PromotionalBanner from "../PromotionalBanner/PromotionalBanner";
 import Testimonials from "../Testimonials/Testimonials";
 import NewsletterSignup from "../NewsletterSignup/NewsLetterSignUp";
-
+import { Router, Routes, Route } from "react-router-dom";
 import { Box } from "@mui/material";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Import the components for the different routes
-import Mens from "../Mens/Mens";
-import Women from "../Women/Women";
-import Kids from "../Kids/Kids";
-import Sale from "../Sale/Sale";
+import Mens from "../Pages/Mens/Mens";
+import Women from "../Pages/Women/Women";
+import Kids from "../Pages/Kids/Kids";
+import Sale from "../Pages/Sale/Sales";
 
 function Landingpage() {
   return (
@@ -25,17 +24,17 @@ function Landingpage() {
         minHeight: "100vh", // Ensure the page takes at least the full height
       }}
     >
-      <Router>
+   
         <Navbar />
         <Routes>
           {/* Define your routes here */}
-          <Route path="/" element={<Hero />} /> {/* Landing page */}
+
           <Route path="/mens" element={<Mens />} /> {/* Mens section */}
           <Route path="/women" element={<Women />} /> {/* Women section */}
           <Route path="/kids" element={<Kids />} /> {/* Kids section */}
-          <Route path="/sale" element={<Sale />} /> {/* Sale section */}
+          <Route path="/sale" element={<Sale />} /> 
         </Routes>
-      </Router>
+ 
 
       {/* Other components that always appear on the landing page */}
       <FeaturedProducts />
