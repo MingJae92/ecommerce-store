@@ -77,7 +77,7 @@ const Footer = () => {
           </Grid>
         </Grid>
         <Box sx={{ mt: 4, textAlign: 'center', borderTop: '1px solid #444', pt: 2 }}>
-          <Typography variant="body2" color="textSecondary">
+          <Typography variant="body2" color="inherit">
             © 2024 My Store. All rights reserved.
           </Typography>
         </Box>

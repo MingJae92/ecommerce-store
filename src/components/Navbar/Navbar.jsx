@@ -16,7 +16,8 @@ const Navbar = () => {
             <Typography sx={{ textDecoration: 'none', color: '#000' }}>Kids</Typography>
             <Typography sx={{ textDecoration: 'none', color: '#000' }}>Sale</Typography>
           </Breadcrumbs>
-          <Button color="inherit" sx={{ marginLeft: '15px', border: '1px solid #000' }}>
+          <Button color="inherit" sx={{ marginLeft: '10px', backgroundColor: '#000', color: '#fff' }}>
+          
             Login
           </Button>
           <Button color="inherit" sx={{ marginLeft: '10px', backgroundColor: '#000', color: '#fff' }}>
