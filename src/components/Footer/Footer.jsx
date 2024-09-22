@@ -13,7 +13,7 @@ const Footer = () => {
     >
       <Container maxWidth="xl">
         <Grid container spacing={4}>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" gutterBottom>
               Get Help
             </Typography>
@@ -30,7 +30,7 @@ const Footer = () => {
               Payment Options
             </Link>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" gutterBottom>
               About Us
             </Typography>
@@ -44,7 +44,7 @@ const Footer = () => {
               Sustainability
             </Link>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" gutterBottom>
               Social
             </Typography>
@@ -61,7 +61,7 @@ const Footer = () => {
               YouTube
             </Link>
           </Grid>
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} sx={{ textAlign: 'center' }}>
             <Typography variant="h6" gutterBottom>
               Contact Us
             </Typography>
