@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography } from '@mui/material';
 
+
 function Mens() {
   return (
     <Box
@@ -34,6 +35,7 @@ function Mens() {
       >
         Explore the latest men's fashion trends!
       </Typography>
+
     </Box>
   );
 }

@@ -30,27 +30,27 @@ const Navbar = () => {
             aria-label="breadcrumb"
             sx={{ color: "#000", marginRight: "20px" }}
           >
-            <Link>
+            <Link to="/">
               <Typography sx={{ textDecoration: "none", color: "#000" }}>
                 Home
               </Typography>
             </Link>
-            <Link>
+            <Link to="/mens">
               <Typography sx={{ textDecoration: "none", color: "#000" }}>
                 Men
               </Typography>
             </Link>
-            <Link>
+            <Link to="/women">
               <Typography sx={{ textDecoration: "none", color: "#000" }}>
                 Women
               </Typography>
             </Link>
-            <Link>
+            <Link to="/kids">
               <Typography sx={{ textDecoration: "none", color: "#000" }}>
                 Kids
               </Typography>
             </Link>
-            <Link>
+            <Link to="/sale">
               <Typography sx={{ textDecoration: "none", color: "#000" }}>
                 Sale
               </Typography>

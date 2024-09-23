@@ -6,7 +6,7 @@ import Women from "./components/Pages/Women/Women";
 import Kids from "./components/Pages/Kids/Kids";
 import Sale from "./components/Pages/Sale/Sales";
 import Navbar from "./components/Navbar/Navbar";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
 import Categories from "./components/Categories/Categories";
 import PromotionalBanner from "./components/PromotionalBanner/PromotionalBanner";
@@ -15,6 +15,14 @@ import NewsletterSignup from "./components/NewsletterSignup/NewsLetterSignUp";
 import Hero from "./components/Hero/Hero";
 
 const App = () => {
+  const location = useLocation(); // Get current route
+
+  // List of paths where we want to hide the additional sections
+  const hideSectionsOnPaths = ["/mens", "/women", "/kids", "/sale"];
+
+  // Check if current path is in the list of paths where sections should be hidden
+  const hideAdditionalSections = hideSectionsOnPaths.includes(location.pathname);
+
   return (
     <>
       <Box
@@ -29,18 +37,25 @@ const App = () => {
         <Navbar />
         <Routes>
           {/* Define your routes here */}
-
           <Route path="/mens" element={<Mens />} />
           <Route path="/women" element={<Women />} />
           <Route path="/kids" element={<Kids />} />
           <Route path="/sale" element={<Sale />} />
         </Routes>
-        <Hero />
-        <FeaturedProducts />
-        <Categories />
-        <PromotionalBanner />
-        <Testimonials />
-        <NewsletterSignup />
+
+        {/* Conditionally render sections for non-selected routes */}
+        {location.pathname === "/" && <Hero />}
+
+        {!hideAdditionalSections && (
+          <>
+            <FeaturedProducts />
+            <Categories />
+            <PromotionalBanner />
+            <Testimonials />
+            <NewsletterSignup />
+          </>
+        )}
+        
         <Footer />
       </Box>
     </>
