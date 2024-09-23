@@ -13,12 +13,21 @@ import PromotionalBanner from "./components/PromotionalBanner/PromotionalBanner"
 import Testimonials from "./components/Testimonials/Testimonials";
 import NewsletterSignup from "./components/NewsletterSignup/NewsLetterSignUp";
 import Hero from "./components/Hero/Hero";
+import Signup from "./components/Pages/Signup/Signup";
+import Login from "./components/Pages/Login/Login";
 
 const App = () => {
   const location = useLocation(); // Get current route
 
   // List of paths where we want to hide the additional sections
-  const hideSectionsOnPaths = ["/mens", "/women", "/kids", "/sale"];
+  const hideSectionsOnPaths = [
+    "/mens", 
+    "/women", 
+    "/kids", 
+    "/sale", 
+    "/signup", 
+    "/login"
+  ];
 
   // Check if current path is in the list of paths where sections should be hidden
   const hideAdditionalSections = hideSectionsOnPaths.includes(location.pathname);
@@ -41,6 +50,8 @@ const App = () => {
           <Route path="/women" element={<Women />} />
           <Route path="/kids" element={<Kids />} />
           <Route path="/sale" element={<Sale />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
 
         {/* Conditionally render sections for non-selected routes */}
@@ -55,7 +66,7 @@ const App = () => {
             <NewsletterSignup />
           </>
         )}
-        
+
         <Footer />
       </Box>
     </>
