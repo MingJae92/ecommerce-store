@@ -5,15 +5,6 @@ function Signup() {
   return (
     <Container maxWidth="lg" sx={{ height: '100vh', display: 'flex', alignItems: 'center' }}>
       <Grid container>
-        <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Box
-            component="img"
-            src="https://via.placeholder.com/400" // Placeholder image URL
-            alt="Signup"
-            sx={{ width: '100%', height: 'auto', borderRadius: '8px' }}
-          />
-        </Grid>
-        
         <Grid item xs={12} md={6}>
           <Box 
             display="flex" 
@@ -110,6 +101,15 @@ function Signup() {
               Already have an account? <a href="#" style={{ color: '#111', textDecoration: 'none' }}>Log in</a>
             </Typography>
           </Box>
+        </Grid>
+
+        <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <Box
+            component="img"
+            src="https://via.placeholder.com/400" // Placeholder image URL
+            alt="Signup"
+            sx={{ width: '100%', height: 'auto', borderRadius: '8px' }}
+          />
         </Grid>
       </Grid>
     </Container>
