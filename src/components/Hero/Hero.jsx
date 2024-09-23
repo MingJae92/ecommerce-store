@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Container, Box, Typography, Button } from '@mui/material';
+import axios from 'axios';
 
 const Hero = () => {
+ 
+
   return (
     <Container maxWidth="xl" sx={{ mt: 4, mb: 4, backgroundColor: '#f9f9f9', p: 2 }}>
       <Box 
