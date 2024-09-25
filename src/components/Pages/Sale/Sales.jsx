@@ -1,78 +1,112 @@
 import React from 'react';
-import { Box, Typography, Button, Grid } from '@mui/material';
+import { Box, Typography, Button, Grid, Container } from '@mui/material';
+import Hero from "../../Hero/Hero";
+import Testimonials from "../../Testimonials/Testimonials";
+import PromotionalBanner from "../../PromotionalBanner/PromotionalBanner";
 
 function Sales() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        minHeight: '100vh', // Centers content vertically
-        backgroundColor: '#ffe0b2', // Light orange background
-        padding: 4,
-      }}
-    >
-      <Typography 
-        variant="h2" 
-        component="h1" 
-        sx={{
-          fontWeight: 'bold',
-          color: '#d32f2f', // Red color for the title
-          marginTop: 4,
-        }}
-      >
-        Sales Collection
-      </Typography>
+    <Box sx={{ backgroundColor: "#ffe0b2", paddingTop: 4, paddingBottom: 8 }}>
+      <Hero />
 
-      <Typography 
-        variant="body1" 
-        sx={{
-          marginTop: 2,
-          color: '#333',
-        }}
-      >
-        Grab the best deals on our products!
-      </Typography>
+      {/* Intro Section */}
+      <Container sx={{ paddingTop: 4 }}>
+        <Typography
+          variant="h3"
+          component="h1"
+          sx={{
+            fontWeight: "bold",
+            color: "#d32f2f", // Red color for the title
+            textAlign: "center",
+            marginBottom: 2,
+          }}
+        >
+          Don't Miss Our Sales!
+        </Typography>
 
-      <Button 
-        variant="contained" 
-        color="primary" 
-        sx={{ marginTop: 3 }}
-        onClick={() => console.log('Shop Now')}
-      >
-        Shop Now
-      </Button>
+        <Typography
+          variant="body1"
+          sx={{
+            textAlign: "center",
+            color: "#333",
+            marginBottom: 4,
+          }}
+        >
+          Grab the best deals on your favorite products before they're gone. Limited time only!
+        </Typography>
 
-      {/* Sample Product Grid */}
-      <Grid container spacing={2} sx={{ marginTop: 4 }}>
-        {Array.from({ length: 4 }).map((_, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Box
-              sx={{
-                backgroundColor: '#fff',
-                borderRadius: 2,
-                boxShadow: 1,
-                padding: 2,
-                textAlign: 'center',
-              }}
-            >
-              <img 
-                src={`https://via.placeholder.com/150`} 
-                alt={`Sale Product ${index + 1}`} 
-                style={{ width: '100%', borderRadius: '8px' }}
-              />
-              <Typography variant="h6" sx={{ marginTop: 1 }}>
-                Sale Product {index + 1}
-              </Typography>
-              <Typography variant="body2" sx={{ color: '#777' }}>
-                $29.99
-              </Typography>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            variant="contained"
+            color="primary"
+            sx={{ padding: "10px 30px", fontSize: "16px" }}
+            onClick={() => console.log("Shop Now")}
+          >
+            Shop Now
+          </Button>
+        </Box>
+      </Container>
+
+      {/* Product Grid Section */}
+      <Container sx={{ marginTop: 8 }}>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: "bold",
+            color: "#d32f2f", // Red color
+            marginBottom: 4,
+            textAlign: "center",
+          }}
+        >
+          Sale Top Picks
+        </Typography>
+        <Grid container spacing={4}>
+          {Array.from({ length: 8 }).map((_, index) => (
+            <Grid item xs={12} sm={6} md={3} key={index}>
+              <Box
+                sx={{
+                  backgroundColor: "#fff",
+                  borderRadius: 2,
+                  boxShadow: 1,
+                  padding: 2,
+                  textAlign: "center",
+                  transition: "transform 0.3s",
+                  "&:hover": {
+                    transform: "scale(1.05)",
+                  },
+                }}
+              >
+                <img
+                  src={`https://via.placeholder.com/300`}
+                  alt={`Sale Product ${index + 1}`}
+                  style={{ width: "100%", borderRadius: "8px" }}
+                />
+                <Typography variant="h6" sx={{ marginTop: 2 }}>
+                  Sale Product {index + 1}
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{ color: "#777", marginBottom: 1 }}
+                >
+                  $29.99
+                </Typography>
+                <Button
+                  variant="outlined"
+                  color="primary"
+                  sx={{ marginTop: 1 }}
+                  onClick={() => console.log("View Product")}
+                >
+                  View Product
+                </Button>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Container>
+
+      <PromotionalBanner />
+
+      <Testimonials />
     </Box>
   );
 }
