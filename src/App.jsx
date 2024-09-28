@@ -20,8 +20,7 @@ import Emailform from "./components/Pages/Contactus/Emailform/Emailform";
 import Home from "./components/Pages/Home/Home";
 import News from "./components/Pages/News/News";
 import Callus from "./components/Pages/Callus/Callus";
-
-
+import Orderstatus from "./components/Orderstatus/Orderstatus";
 
 const App = () => {
   const location = useLocation(); // Get current route
@@ -44,7 +43,8 @@ const App = () => {
     "/news",
     "/email",
     "/callus",
-    "/careers"
+    "/careers",
+    "/orderstatus"
   ];
 
   // Check if current path is in the list of paths where sections should be hidden
@@ -82,6 +82,7 @@ const App = () => {
           <Route path="/news" element={<News />} />
           <Route path="callus" element={<Callus/>}/>
           <Route path="/careers" element={<Careers/>}/>
+          <Route path="/orderstatus" element={<Orderstatus/>}/>
 
         </Routes>
 
