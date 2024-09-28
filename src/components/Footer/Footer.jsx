@@ -17,16 +17,16 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               Get Help
             </Typography>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/orderstatus" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Order Status
             </Link>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/shipping" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Shipping
             </Link>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/returns" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Returns
             </Link>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/paymentoptions" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Payment Options
             </Link>
           </Grid>
@@ -34,13 +34,13 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               About Us
             </Typography>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/careers" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Careers
             </Link>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/news" color="inherit" sx={{ display: 'block', mb: 1 }}>
               News
             </Link>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/sustainability" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Sustainability
             </Link>
           </Grid>
@@ -65,13 +65,13 @@ const Footer = () => {
             <Typography variant="h6" gutterBottom>
               Contact Us
             </Typography>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/email" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Email
             </Link>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/livechat" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Live Chat
             </Link>
-            <Link href="#" color="inherit" sx={{ display: 'block', mb: 1 }}>
+            <Link href="/callus" color="inherit" sx={{ display: 'block', mb: 1 }}>
               Call Us
             </Link>
           </Grid>

@@ -7,30 +7,50 @@ import Kids from "./components/Pages/Kids/Kids";
 import Sale from "./components/Pages/Sale/Sales";
 import Navbar from "./components/Navbar/Navbar";
 import { Routes, Route, useLocation } from "react-router-dom";
-import FeaturedProducts from "./components/FeaturedProducts/FeaturedProducts";
-import Categories from "./components/Categories/Categories";
-import PromotionalBanner from "./components/PromotionalBanner/PromotionalBanner";
-import Testimonials from "./components/Testimonials/Testimonials";
-import NewsletterSignup from "./components/NewsletterSignup/NewsLetterSignUp";
 import Hero from "./components/Hero/Hero";
 import Signup from "./components/Pages/Signup/Signup";
 import Login from "./components/Pages/Login/Login";
+import Shipping from "./components/Pages/Shipping/Shipping";
+import Returns from "./components/Pages/Returns/Returns";
+import Paymentoptions from "./components/Pages/Paymentoptions/Paymentoptions";
+import Careers from "./components/Pages/Careers/Careers";
+import Sustainability from "./components/Pages/Sustainability/Sustainability";
+import Livechat from "./components/Pages/Contactus/Livechat/Livechat";
+import Emailform from "./components/Pages/Contactus/Emailform/Emailform";
+import Home from "./components/Pages/Home/Home";
+import News from "./components/Pages/News/News";
+import Callus from "./components/Pages/Callus/Callus";
+
+
 
 const App = () => {
   const location = useLocation(); // Get current route
 
   // List of paths where we want to hide the additional sections
   const hideSectionsOnPaths = [
-    "/mens", 
-    "/women", 
-    "/kids", 
-    "/sale", 
-    "/signup", 
-    "/login"
+    "/mens",
+    "/women",
+    "/kids",
+    "/sale",
+    "/signup",
+    "/login",
+    "/shipping",
+    "/returns",
+    "/paymentoptions",
+    "/careers",
+    "/sustainability",
+    "/livechat",
+    "/email",
+    "/news",
+    "/email",
+    "/callus",
+    "/careers"
   ];
 
   // Check if current path is in the list of paths where sections should be hidden
-  const hideAdditionalSections = hideSectionsOnPaths.includes(location.pathname);
+  const hideAdditionalSections = hideSectionsOnPaths.includes(
+    location.pathname
+  );
 
   return (
     <>
@@ -52,20 +72,23 @@ const App = () => {
           <Route path="/sale" element={<Sale />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/returns" element={<Returns />} />
+          <Route path="/paymentoptions" element={<Paymentoptions />} />
+          <Route path="/careers" element={<Careers />} />
+          <Route path="/sustainability" element={<Sustainability />} />
+          <Route path="/livechat" element={<Livechat />} />
+          <Route path="/email" element={<Emailform />} />
+          <Route path="/news" element={<News />} />
+          <Route path="callus" element={<Callus/>}/>
+          <Route path="/careers" element={<Careers/>}/>
+
         </Routes>
 
         {/* Conditionally render sections for non-selected routes */}
         {location.pathname === "/" && <Hero />}
 
-        {!hideAdditionalSections && (
-          <>
-            <FeaturedProducts />
-            <Categories />
-            <PromotionalBanner />
-            <Testimonials />
-            <NewsletterSignup />
-          </>
-        )}
+        {!hideAdditionalSections && <Home />}
 
         <Footer />
       </Box>
