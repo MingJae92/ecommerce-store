@@ -21,6 +21,7 @@ import Home from "./components/Pages/Home/Home";
 import News from "./components/Pages/News/News";
 import Callus from "./components/Pages/Callus/Callus";
 import Orderstatus from "./components/Orderstatus/Orderstatus";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 const App = () => {
   const location = useLocation(); // Get current route
@@ -64,6 +65,7 @@ const App = () => {
         }}
       >
         <Navbar />
+        <GoogleOAuthProvider clientId="752043277035-asja92qb9cfssqhsssv6h7pa53hpvhpa.apps.googleusercontent.com">
         <Routes>
           {/* Define your routes here */}
           <Route path="/mens" element={<Mens />} />
@@ -85,6 +87,8 @@ const App = () => {
           <Route path="/orderstatus" element={<Orderstatus/>}/>
 
         </Routes>
+        </GoogleOAuthProvider>
+       
 
         {/* Conditionally render sections for non-selected routes */}
         {location.pathname === "/" && <Hero />}
