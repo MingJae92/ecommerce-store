@@ -6,6 +6,8 @@ import {
   Typography,
   Box,
   Grid,
+  Avatar,
+  Paper,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { GoogleLogin } from "@react-oauth/google";
@@ -49,7 +51,7 @@ const ImagePlaceholder = styled(Box)(({ theme }) => ({
 }));
 
 function Login() {
-  const [loading, setLoading] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(null);
 
   const handleSuccess = (credentialResponse) => {
     const details = jwtDecode(credentialResponse.credential);
@@ -58,9 +60,8 @@ function Login() {
       name: details.name,
       email: details.email,
     };
-    setLoading(userData);
+    setLoggedIn(userData);
     console.log("Google login successful", details);
-    console.log(credentialResponse);
   };
 
   const handleError = () => {
@@ -68,14 +69,52 @@ function Login() {
     // Show user-friendly error message if needed
   };
 
-  if (loading) {
+  if (loggedIn) {
     return (
-      <div>
-        <h3>Logged In</h3>
-        <img src={loading.picture} alt="User" />
-        <h3>{loading.name}</h3>
-        <p>{loading.email}</p>
-      </div>
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          backgroundColor: "#f5f5f5",
+        }}
+      >
+        <Paper
+          elevation={3}
+          sx={{
+            padding: 4,
+            borderRadius: "16px",
+            maxWidth: "400px",
+            textAlign: "center",
+            backgroundColor: "#fff",
+          }}
+        >
+          <Avatar
+            src={loggedIn.picture}
+            alt={loggedIn.name}
+            sx={{
+              width: 100,
+              height: 100,
+              margin: "0 auto",
+            }}
+          />
+          <Typography
+            variant="h5"
+            component="h3"
+            fontWeight="bold"
+            sx={{ mt: 2 }}
+          >
+            {loggedIn.name}
+          </Typography>
+          <Typography variant="body1" sx={{ mt: 1, color: "text.secondary" }}>
+            {loggedIn.email}
+          </Typography>
+          <Typography variant="h6" sx={{ mt: 3, color: "#ff6a00" }}>
+            Logged In Successfully
+          </Typography>
+        </Paper>
+      </Box>
     );
   }
 
