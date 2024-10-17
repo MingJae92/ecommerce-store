@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Container,
   TextField,
@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { GoogleLogin } from "@react-oauth/google";
+import {jwtDecode} from "jwt-decode";
 
 const CustomContainer = styled(Container)(({ theme }) => ({
   height: "100vh",
@@ -30,9 +31,12 @@ const FormContainer = styled(Box)(({ theme }) => ({
 const CustomButton = styled(Button)(({ theme }) => ({
   backgroundColor: "#ff6a00", // Nike orange
   color: "#fff",
+  fontWeight: "bold",
   "&:hover": {
     backgroundColor: "#e55a00", // Darker shade for hover
   },
+  padding: theme.spacing(1.5),
+  borderRadius: "8px",
 }));
 
 const ImagePlaceholder = styled(Box)(({ theme }) => ({
@@ -45,8 +49,18 @@ const ImagePlaceholder = styled(Box)(({ theme }) => ({
 }));
 
 function Login() {
+  const [loading, setLoading] = useState(null);
+
   const handleSuccess = (credentialResponse) => {
-    console.log("Google login successful", credentialResponse);
+    const details = jwtDecode(credentialResponse.credential);
+    const userData = {
+      picture: details.picture,
+      name: details.name,
+      email: details.email,
+    };
+    setLoading(userData);
+    console.log("Google login successful", details);
+    console.log(credentialResponse);
   };
 
   const handleError = () => {
@@ -54,9 +68,20 @@ function Login() {
     // Show user-friendly error message if needed
   };
 
+  if (loading) {
+    return (
+      <div>
+        <h3>Logged In</h3>
+        <img src={loading.picture} alt="User" />
+        <h3>{loading.name}</h3>
+        <p>{loading.email}</p>
+      </div>
+    );
+  }
+
   return (
     <CustomContainer maxWidth="lg">
-      <Grid container spacing={2} alignItems="center">
+      <Grid container spacing={4} alignItems="center">
         <Grid item xs={12} sm={6}>
           <FormContainer>
             <Typography
@@ -111,7 +136,7 @@ function Login() {
                 },
               }}
             />
-            <CustomButton variant="contained" fullWidth sx={{ mt: 2 }}>
+            <CustomButton variant="contained" fullWidth sx={{ mt: 3 }}>
               Login
             </CustomButton>
             <Typography variant="body2" sx={{ mt: 2, textAlign: "center" }}>
