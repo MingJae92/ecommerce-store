@@ -18,19 +18,17 @@ function Signup() {
   });
 
   const handleChange = (e) => {
-    const { name, email, password, confirmpassword } = e.target;
-    setNewUser((newUserData) => ({
-      ...newUserData,
+    const { name, value } = e.target;
+    setNewUser((prevState) => ({
+      ...prevState,
       [name]: value,
-      [email]: value,
-      [password]: value,
-      [confirmpassword]: value,
     }));
   };
 
-  const handleSubmit =(e)=>{
-    e.preventDefault()
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Perform form submission or validation here
+  };
 
   return (
     <Container
@@ -71,7 +69,7 @@ function Signup() {
             </Typography>
 
             <TextField
-            value={newUser.name}
+              value={newUser.name}
               name="name"
               label="Name"
               variant="outlined"
@@ -87,7 +85,7 @@ function Signup() {
               }}
             />
             <TextField
-            value={newUser.email}
+              value={newUser.email}
               name="email"
               label="Email"
               type="email"
@@ -104,7 +102,7 @@ function Signup() {
               }}
             />
             <TextField
-            value={newUser.password}
+              value={newUser.password}
               name="password"
               label="Password"
               type="password"
@@ -121,8 +119,8 @@ function Signup() {
               }}
             />
             <TextField
-            value={newUser.confirmpassword}
-              name="confirm-password"
+              value={newUser.confirmpassword}
+              name="confirmpassword"
               label="Confirm Password"
               type="password"
               variant="outlined"
@@ -139,7 +137,7 @@ function Signup() {
             />
 
             <Button
-            onSubmit={handleSubmit}
+              onClick={handleSubmit}
               variant="contained"
               color="primary"
               fullWidth
