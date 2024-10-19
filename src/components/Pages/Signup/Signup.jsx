@@ -16,6 +16,7 @@ function Signup() {
     password: "",
     confirmpassword: "",
   });
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,32 +26,42 @@ function Signup() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = validateForm(newUser)
+    const newErrors = validateForm(newUser);
     // Perform form submission or validation here
-    if(Object.keys(newErrors).length===0){
-      console.log('Form submitted successfully!');
-    }else{
-      console.log('Form submission failed due to validation errors.');
+    if (Object.keys(newErrors).length === 0) {
+      console.log("Form submitted successfully!");
+    } else {
+      setErrors(newErrors);
+      console.log("Form submission failed due to validation errors.");
     }
   };
 
-  const validateForm = (data)=>{
-    const errors={}
+  const validateForm = (data) => {
+    const errors = {};
 
-    if(!data.name.trim()){
-      errors.name = "Name is required"
-    }else if(name.length<6){
-       errors.username = 'Username must be at least 6 characters long';
+    if (!data.name.trim()) {
+      errors.name = "Name is required";
+    } else if (data.name.length < 6) {
+      errors.name = "Name must be at least 6 characters long";
     }
-  }
+    if (!data.email.trim()) {
+      errors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(data.email)) {
+      errors.email = "Email is invalid";
+    }
 
-  if(!data.email.trim()){
-    errors.email = "Email is required"
-  }else if(!/\S+@\S+\.\S+/.test(data.email)){
-    errors.email="Email is invalid"
-  }
+    if (!data.password) {
+      errors.password = "Password is required";
+    } else if (data.password.length < 6) {
+      errors.password = "Password must be at least 6 characters long";
+    }
 
-  
+    if (data.confirmpassword !== data.password) {
+      errors.confirmpassword = "Passwords do not match";
+    }
+
+    return errors;
+  };
 
   return (
     <Container
@@ -98,6 +109,8 @@ function Signup() {
               onChange={handleChange}
               fullWidth
               margin="normal"
+              error={!!errors.name}
+              helperText={errors.name}
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "#111" },
@@ -115,6 +128,8 @@ function Signup() {
               onChange={handleChange}
               fullWidth
               margin="normal"
+              error={!!errors.email}
+              helperText={errors.email}
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "#111" },
@@ -132,6 +147,8 @@ function Signup() {
               onChange={handleChange}
               fullWidth
               margin="normal"
+              error={!!errors.password}
+              helperText={errors.password}
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "#111" },
@@ -149,6 +166,8 @@ function Signup() {
               onChange={handleChange}
               fullWidth
               margin="normal"
+              error={!!errors.confirmpassword}
+              helperText={errors.confirmpassword}
               sx={{
                 "& .MuiOutlinedInput-root": {
                   "& fieldset": { borderColor: "#111" },
@@ -178,7 +197,7 @@ function Signup() {
               color="textSecondary"
               sx={{ mt: 3, textAlign: "center" }}
             >
-              Already have an account?
+              Already have an account?{" "}
               <Typography
                 component="a"
                 href="#"
