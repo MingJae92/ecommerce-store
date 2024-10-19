@@ -16,22 +16,22 @@ function Signup() {
     password: "",
     confirmpassword: "",
   });
-  const [errors, setErrors] = useState({});
+
+  const [errors, setErrors] = useState({}); // State for storing errors
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
     setNewUser({ ...newUser, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = validateForm(newUser);
-    // Perform form submission or validation here
+    setErrors(newErrors);
+
     if (Object.keys(newErrors).length === 0) {
       console.log("Form submitted successfully!");
     } else {
-      setErrors(newErrors);
       console.log("Form submission failed due to validation errors.");
     }
   };
@@ -44,6 +44,7 @@ function Signup() {
     } else if (data.name.length < 6) {
       errors.name = "Name must be at least 6 characters long";
     }
+
     if (!data.email.trim()) {
       errors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(data.email)) {
@@ -197,7 +198,7 @@ function Signup() {
               color="textSecondary"
               sx={{ mt: 3, textAlign: "center" }}
             >
-              Already have an account?{" "}
+              Already have an account?
               <Typography
                 component="a"
                 href="#"
