@@ -19,16 +19,38 @@ function Signup() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewUser((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+
+    setNewUser({ ...newUser, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const newErrors = validateForm(newUser)
     // Perform form submission or validation here
+    if(Object.keys(newErrors).length===0){
+      console.log('Form submitted successfully!');
+    }else{
+      console.log('Form submission failed due to validation errors.');
+    }
   };
+
+  const validateForm = (data)=>{
+    const errors={}
+
+    if(!data.name.trim()){
+      errors.name = "Name is required"
+    }else if(name.length<6){
+       errors.username = 'Username must be at least 6 characters long';
+    }
+  }
+
+  if(!data.email.trim()){
+    errors.email = "Email is required"
+  }else if(!/\S+@\S+\.\S+/.test(data.email)){
+    errors.email="Email is invalid"
+  }
+
+  
 
   return (
     <Container
