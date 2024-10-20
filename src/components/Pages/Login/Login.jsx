@@ -11,7 +11,8 @@ import {
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { GoogleLogin } from "@react-oauth/google";
-import {jwtDecode} from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 const CustomContainer = styled(Container)(({ theme }) => ({
   height: "100vh",
@@ -52,6 +53,7 @@ const ImagePlaceholder = styled(Box)(({ theme }) => ({
 
 function Login() {
   const [loggedIn, setLoggedIn] = useState(null);
+  const navigate = useNavigate();
 
   const handleSuccess = (credentialResponse) => {
     const details = jwtDecode(credentialResponse.credential);
@@ -67,6 +69,12 @@ function Login() {
   const handleError = () => {
     console.log("Login failed");
     // Show user-friendly error message if needed
+  };
+
+  const handleLoggedOut = () => {
+    setLoggedIn(null); // Clear the logged-in user data
+    navigate("/login"); // Redirect to the login page
+    console.log("Logged out");
   };
 
   if (loggedIn) {
@@ -113,6 +121,9 @@ function Login() {
           <Typography variant="h6" sx={{ mt: 3, color: "#ff6a00" }}>
             Logged In Successfully
           </Typography>
+          <CustomButton onClick={handleLoggedOut} sx={{ mt: 3 }}>
+            Logout
+          </CustomButton>
         </Paper>
       </Box>
     );
