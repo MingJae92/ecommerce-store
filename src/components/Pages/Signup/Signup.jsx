@@ -31,6 +31,7 @@ function Signup() {
 
     if (Object.keys(newErrors).length === 0) {
       console.log("Form submitted successfully!");
+      alert("You are now signed up!")
     } else {
       console.log("Form submission failed due to validation errors.");
     }
@@ -63,6 +64,8 @@ function Signup() {
 
     return errors;
   };
+
+
 
   return (
     <Container
