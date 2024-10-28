@@ -1,5 +1,8 @@
 import mongoose from "mongoose";
-const dbURI ="mongodb+srv://mingchiwong:IeRXOoOmVo8BsJN8@cluster0.oagw5.mongodb.net/";
+import dotenv from "dotenv";
+dotenv.config({ path: "../Server/config/.env" });
+
+const dbURI =process.env.VITE_MONGO_DB_URI
 
 const connectDB = async () => {
     try {
