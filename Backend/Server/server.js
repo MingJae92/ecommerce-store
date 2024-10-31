@@ -8,7 +8,6 @@ dotenv.config({ path: "./config/.env" });
 const PORT= process.env.VITE_SERVER_PORT
 const app = express();
 
-
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

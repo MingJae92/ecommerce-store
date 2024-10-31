@@ -7,10 +7,7 @@ const dbURI =process.env.VITE_MONGO_DB_URI
 const connectDB = async () => {
     try {
       console.log("Attempting to connect to MongoDB...");
-      await mongoose.connect(dbURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-      });
+      await mongoose.connect(dbURI );
       console.log("Connected to MongoDB successfully!");
     } catch (error) {
       console.error("Connection error:", error);

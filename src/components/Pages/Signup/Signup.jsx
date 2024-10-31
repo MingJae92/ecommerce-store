@@ -35,6 +35,13 @@ function Signup() {
     } else {
       console.log("Form submission failed due to validation errors.");
     }
+    try {
+      axios.post("http://localhost:9000/signup", newUser)
+    } catch (error) {
+      console.log(error)
+    }
+   
+    
   };
 
   const validateForm = (data) => {
