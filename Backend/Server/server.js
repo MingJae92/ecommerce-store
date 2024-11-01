@@ -1,15 +1,23 @@
 import express from "express";
 import connectDB from "../Database/connection.js";
 import dotenv from "dotenv";
+import signUpRoute from "../Routes/signUpRoute/signUpRoute.js";
 
-// Correct syntax for dotenv.config with path option
+// Load environment variables from a .env file
 dotenv.config({ path: "./config/.env" });
 
-const PORT= process.env.VITE_SERVER_PORT
+const PORT = process.env.VITE_SERVER_PORT;
 const app = express();
+
+// Middleware to parse JSON requests
+app.use(express.json());
+
+// Use the signup route for API calls to "/signup"
+app.use("/signup", signUpRoute);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
 
+// Connect to the database
 connectDB();
