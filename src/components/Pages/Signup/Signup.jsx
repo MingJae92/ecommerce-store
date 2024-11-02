@@ -8,6 +8,7 @@ import {
   Grid,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Signup() {
   const [newUser, setNewUser] = useState({
@@ -30,19 +31,18 @@ function Signup() {
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted successfully!");
-      alert("You are now signed up!")
     } else {
       console.log("Form submission failed due to validation errors.");
     }
     try {
-      
-      axios.post("http://localhost:9000/signup", newUser)
+      // const serverURL = "http://localhost:9000/signup"
+      axios.post("http://localhost:9000/signup", newUser);
+      console.log("Form submitted successfully!");
+      alert("You are now signed up!");
+      // console.log(serverURL)
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-   
-    
   };
 
   const validateForm = (data) => {
@@ -72,8 +72,6 @@ function Signup() {
 
     return errors;
   };
-
-
 
   return (
     <Container

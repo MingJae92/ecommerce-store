@@ -5,7 +5,7 @@ const signUpController = async (req, res) => {
     const userData = await signUp.create({
       name: req.body.name,
       email: req.body.email,
-      password: req.body.pass,
+      password: req.body.password,
       confirmpassword: req.body.confirmpassword,
     });
     
@@ -13,6 +13,7 @@ const signUpController = async (req, res) => {
     res.status(200).json({ message: "User successfully added!", user: userData });
   } catch (error) {
     res.status(500).json({ message: "Internal server error!", error });
+    console.log({error})
   }
 };
 
