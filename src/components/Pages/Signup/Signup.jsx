@@ -36,7 +36,8 @@ function Signup() {
       console.log("Form submission failed due to validation errors.");
     }
     try {
-      axios.post("/signup", newUser)
+      
+      axios.post("http://localhost:9000/signup", newUser)
     } catch (error) {
       console.log(error)
     }
