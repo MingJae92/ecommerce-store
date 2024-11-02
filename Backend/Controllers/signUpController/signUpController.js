@@ -1,4 +1,4 @@
-import signUp from "./Models/signUpModel/signUpSchema.js";
+import signUp from "../../Models/signUpModel/signUpSchema.js";
 
 const signUpController = async (req, res) => {
   try {
