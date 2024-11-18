@@ -52,10 +52,13 @@ const ImagePlaceholder = styled(Box)(({ theme }) => ({
 }));
 
 function Login() {
+  const [user, setUser] =useState(null)
+  const[password, setPassword]=useState(null)
   const [loggedIn, setLoggedIn] = useState(null);
   const navigate = useNavigate();
 
   const handleSuccess = (credentialResponse) => {
+    
     const details = jwtDecode(credentialResponse.credential);
     const userData = {
       picture: details.picture,

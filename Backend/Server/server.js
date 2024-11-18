@@ -4,6 +4,8 @@ import connectDB from "../Database/connection.js";
 import dotenv from "dotenv";
 // import axios from "axios";
 import signUpRoute from "../Routes/signUpRoute/signUpRoute.js";
+import loginRoute from "../Routes/loginRoute/loginRoute.js"
+
 import cors from "cors"
 
 // Load environment variables from a .env file
@@ -18,6 +20,7 @@ app.use(express.json());
 
 // Use the signup route for API calls to "/signup"
 app.use("/signup", signUpRoute);
+app.use("/login", loginRoute);
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
